@@ -1,0 +1,18 @@
+@import './variables';
+
+// Use Tailwind's @apply directive to mix in utility classes
+.custom-button {
+  @apply px-6 py-2 rounded-full text-white font-semibold shadow-md transition-transform transform hover:scale-105;
+  background-color: $primary-color; // Using an SCSS variable
+
+  &:focus {
+    @apply outline-none ring-2 ring-offset-2;
+    ring-color: $secondary-color; // Using another SCSS variable
+  }
+}
+
+// Example of a custom class that doesn't use @apply
+.special-text {
+  color: $secondary-color;
+  font-style: italic;
+}

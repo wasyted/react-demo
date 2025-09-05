@@ -1,0 +1,40 @@
+{
+  "recommended": [
+    {
+      "id": "1",
+      "title": "lemon pie",
+      "price": 4000,
+      "image": {
+        "url": "/Gemini_Generated_Image_6qeusb6qeusb6qeu.png",
+        "alt": "lemon pie"
+      }
+    },
+        {
+      "id": "2",
+      "title": "budín de chocolate",
+      "price": 1500,
+      "image": {
+        "url": "/Gemini_Generated_Image_9gucz29gucz29guc.png",
+        "alt": "budín de chocolate"
+      }
+    },
+        {
+      "id": "3",
+      "title": "pan de semillas",
+      "price": 1200,
+      "image": {
+        "url": "/Gemini_Generated_Image_13u7pv13u7pv13u7.png",
+        "alt": "pan de semillas"
+      }
+    },
+        {
+      "id": "4",
+      "title": "budín de manzana",
+      "price": 1600,
+      "image": {
+        "url": "/Gemini_Generated_Image_wliguiwliguiwlig.png",
+        "alt": "budín de manzana"
+      }
+    }
+  ]
+}
