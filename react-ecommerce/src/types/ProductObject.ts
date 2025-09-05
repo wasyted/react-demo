@@ -1,4 +1,5 @@
 export default interface ProductObject {
+  id: string,
   title: string,
   price: number,
   image: {

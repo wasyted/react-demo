@@ -1,21 +1,45 @@
+import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import ProductCard from './components/ProductCard';
-import ProductObject from './types/ProductObject'
-import { useEffect, useState } from 'react';
+import ProductObject from './types/ProductObject';
+import { useAppDispatch, useAppSelector } from './app/hooks';
+import { fetchCartData, sendCartData } from './store/cart-actions';
 
-
+let isInitial = true;
 
 export default function App() {
-  const [products, setProducts] = useState([]);
+  const dispatch = useAppDispatch(); // Use the typed dispatch hook
+  const cart = useAppSelector((state) => state.cart);
+  const [products, setProducts] = useState<ProductObject[]>([]);
+
+  useEffect(() => {
+    dispatch(fetchCartData());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (isInitial) {
+      isInitial = false;
+      return;
+    }
+
+    // You'll need to add a 'changed' flag to your cart slice for this to work
+    // if (cart.changed) {
+      dispatch(sendCartData(cart));
+    // }
+  }, [cart, dispatch]);
 
   const getProducts = async () => {
-    const response = await fetch('./data/products.json');
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error("Error while retrieving products");
+    try {
+      const response = await fetch('./data/products.json');
+      if (!response.ok) {
+        throw new Error("Error while retrieving products");
+      }
+      const data = await response.json();
+      setProducts(data.recommended);
+    } catch (error) {
+      console.error(error);
     }
-    setProducts(data.recommended);
   }
 
   useEffect(() => {
